@@ -1,18 +1,34 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include "hero.h"
 #include "list.h"
 
 int main(void) {
     Node* head = NULL;
+    int choice;
 
-    Hero h1 = { "Arthas", "Czlowiek", "Wojownik", 10, 80, AKTYWNY };
-    Hero h2 = { "Elwyn", "Elf", "Mag", 7, 90, AKTYWNY };
+    do {
+        printf("\n--- Rejestr Bohaterow ---\n");
+        printf("1. Dodaj bohatera\n");
+        printf("2. Wyswietl bohaterow\n");
+        printf("0. Wyjscie\n");
+        printf("Wybor: ");
+        scanf("%d", &choice);
 
-    head = createNode(h1);
-    head->next = createNode(h2);
-
-    printf("Lista bohaterow:\n");
-    printHeroes(head);
+        switch (choice) {
+        case 1:
+            head = addHeroInteractive(head);
+            break;
+        case 2:
+            printHeroes(head);
+            break;
+        case 0:
+            printf("Koniec programu.\n");
+            break;
+        default:
+            printf("Niepoprawny wybor.\n");
+        }
+    } while (choice != 0);
 
     freeList(head);
     return 0;

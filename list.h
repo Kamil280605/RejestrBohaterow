@@ -13,3 +13,6 @@ void printHeroes(Node* head);
 void freeList(Node* head);
 
 #endif
+
+Node* addHeroInteractive(Node* head);
+int isNameUnique(Node* head, const char* name);
