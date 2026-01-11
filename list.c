@@ -88,3 +88,45 @@ Node* addHeroInteractive(Node* head) {
     return n;
 }
 
+Node* findHeroByName(Node* head, const char* name) {
+    while (head) {
+        if (strcmp(head->data.imie, name) == 0) {
+            return head;
+        }
+        head = head->next;
+    }
+    return NULL;
+}
+
+void editHero(Node* head) {
+    char name[100];
+    printf("Podaj imie bohatera do edycji: ");
+    scanf("%99s", name);
+
+    Node* node = findHeroByName(head, name);
+    if (!node) {
+        printf("Nie znaleziono bohatera.\n");
+        return;
+    }
+
+    printf("Edycja bohatera %s\n", node->data.imie);
+
+    printf("Nowa rasa: ");
+    scanf("%99s", node->data.rasa);
+
+    printf("Nowa klasa: ");
+    scanf("%99s", node->data.klasa);
+
+    printf("Nowy poziom: ");
+    scanf("%d", &node->data.poziom);
+
+    printf("Nowa reputacja: ");
+    scanf("%d", &node->data.reputacja);
+
+    printf("Nowy status (0-aktywny, 1-na misji, 2-ranny, 3-zaginiony, 4-zawieszony): ");
+    scanf("%d", (int*)&node->data.status);
+
+    printf("Dane bohatera zaktualizowane.\n");
+}
+
+

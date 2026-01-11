@@ -16,3 +16,6 @@ void freeList(Node* head);
 
 Node* addHeroInteractive(Node* head);
 int isNameUnique(Node* head, const char* name);
+
+Node* findHeroByName(Node* head, const char* name);
+void editHero(Node* head);

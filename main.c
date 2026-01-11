@@ -11,6 +11,7 @@ int main(void) {
         printf("\n--- Rejestr Bohaterow ---\n");
         printf("1. Dodaj bohatera\n");
         printf("2. Wyswietl bohaterow\n");
+        printf("3. Edytuj bohatera\n");
         printf("0. Wyjscie\n");
         printf("Wybor: ");
         scanf("%d", &choice);
@@ -21,6 +22,9 @@ int main(void) {
             break;
         case 2:
             printHeroes(head);
+            break;
+        case 3:
+            editHero(head);
             break;
         case 0:
             printf("Koniec programu.\n");
