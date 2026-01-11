@@ -19,3 +19,5 @@ int isNameUnique(Node* head, const char* name);
 
 Node* findHeroByName(Node* head, const char* name);
 void editHero(Node* head);
+
+Node* removeHero(Node* head);

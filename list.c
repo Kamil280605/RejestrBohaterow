@@ -129,4 +129,41 @@ void editHero(Node* head) {
     printf("Dane bohatera zaktualizowane.\n");
 }
 
+Node* removeHero(Node* head) {
+    char name[100];
+    printf("Podaj imie bohatera do usuniecia: ");
+    scanf("%99s", name);
+
+    Node* current = head;
+    Node* prev = NULL;
+
+    while (current) {
+        if (strcmp(current->data.imie, name) == 0) {
+
+            if (current->data.status == NA_MISJI) {
+                printf("Nie mozna usunac bohatera bedacego na misji!\n");
+                return head;
+            }
+
+            if (prev == NULL) {
+                head = current->next;
+            }
+            else {
+                prev->next = current->next;
+            }
+
+            free(current);
+            printf("Bohater zostal usuniety.\n");
+            return head;
+        }
+
+        prev = current;
+        current = current->next;
+    }
+
+    printf("Nie znaleziono bohatera o podanym imieniu.\n");
+    return head;
+}
+
+
 
