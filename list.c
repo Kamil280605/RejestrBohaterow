@@ -165,5 +165,58 @@ Node* removeHero(Node* head) {
     return head;
 }
 
+void saveToFile(Node* head, const char* filename) {
+    FILE* f = fopen(filename, "w");
+    if (!f) {
+        printf("Nie mozna otworzyc pliku do zapisu.\n");
+        return;
+    }
+
+    while (head) {
+        fprintf(f, "%s;%s;%s;%d;%d;%d\n",
+            head->data.imie,
+            head->data.rasa,
+            head->data.klasa,
+            head->data.poziom,
+            head->data.reputacja,
+            head->data.status
+        );
+        head = head->next;
+    }
+
+    fclose(f);
+    printf("Zapisano dane do pliku.\n");
+}
+
+Node* loadFromFile(const char* filename) {
+    FILE* f = fopen(filename, "r");
+    if (!f) {
+        printf("Plik nie istnieje. Start z pusta lista.\n");
+        return NULL;
+    }
+
+    Node* head = NULL;
+    Hero h;
+
+    while (fscanf(f, "%99[^;];%99[^;];%99[^;];%d;%d;%d\n",
+        h.imie,
+        h.rasa,
+        h.klasa,
+        &h.poziom,
+        &h.reputacja,
+        (int*)&h.status) == 6) {
+
+        Node* n = createNode(h);
+        if (!n) break;
+
+        n->next = head;
+        head = n;
+    }
+
+    fclose(f);
+    printf("Wczytano dane z pliku.\n");
+    return head;
+}
+
 
 

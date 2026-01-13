@@ -21,3 +21,6 @@ Node* findHeroByName(Node* head, const char* name);
 void editHero(Node* head);
 
 Node* removeHero(Node* head);
+
+void saveToFile(Node* head, const char* filename);
+Node* loadFromFile(const char* filename);
