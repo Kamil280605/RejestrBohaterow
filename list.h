@@ -24,3 +24,6 @@ Node* removeHero(Node* head);
 
 void saveToFile(Node* head, const char* filename);
 Node* loadFromFile(const char* filename);
+
+void searchByName(Node* head);
+void searchByLevel(Node* head);

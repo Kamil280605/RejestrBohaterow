@@ -218,5 +218,59 @@ Node* loadFromFile(const char* filename) {
     return head;
 }
 
+void searchByName(Node* head) {
+    char query[100];
+    int found = 0;
+
+    printf("Podaj imie lub prefiks: ");
+    scanf("%99s", query);
+
+    while (head) {
+        if (strncmp(head->data.imie, query, strlen(query)) == 0) {
+            printf("Imie: %s | Rasa: %s | Klasa: %s | Poziom: %d | Reputacja: %d | Status: %s\n",
+                head->data.imie,
+                head->data.rasa,
+                head->data.klasa,
+                head->data.poziom,
+                head->data.reputacja,
+                statusToString(head->data.status)
+            );
+            found = 1;
+        }
+        head = head->next;
+    }
+
+    if (!found) {
+        printf("Brak pasujacych bohaterow.\n");
+    }
+}
+
+void searchByLevel(Node* head) {
+    int level;
+    int found = 0;
+
+    printf("Podaj minimalny poziom: ");
+    scanf("%d", &level);
+
+    while (head) {
+        if (head->data.poziom >= level) {
+            printf("Imie: %s | Rasa: %s | Klasa: %s | Poziom: %d | Reputacja: %d | Status: %s\n",
+                head->data.imie,
+                head->data.rasa,
+                head->data.klasa,
+                head->data.poziom,
+                head->data.reputacja,
+                statusToString(head->data.status)
+            );
+            found = 1;
+        }
+        head = head->next;
+    }
+
+    if (!found) {
+        printf("Brak bohaterow spelniajacych kryterium.\n");
+    }
+}
+
 
 

@@ -14,6 +14,8 @@ int main(void) {
         printf("3. Edytuj bohatera\n");
         printf("4. Usun bohatera\n");
         printf("5. Zapisz do pliku\n");
+        printf("6. Wyszukaj po imieniu\n");
+        printf("7. Wyszukaj po poziomie\n");
         printf("0. Wyjscie\n");
         printf("Wybor: ");
         scanf("%d", &choice);
@@ -33,6 +35,12 @@ int main(void) {
             break;
         case 5:
             saveToFile(head, "heroes.txt");
+            break;
+        case 6:
+            searchByName(head);
+            break;
+        case 7:
+            searchByLevel(head);
             break;
         case 0:
             printf("Koniec programu.\n");
