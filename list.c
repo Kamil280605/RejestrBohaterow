@@ -272,5 +272,59 @@ void searchByLevel(Node* head) {
     }
 }
 
+Node* sortByName(Node* head) {
+    if (!head) return NULL;
+
+    int swapped;
+    Node* ptr;
+    Node* lptr = NULL;
+
+    do {
+        swapped = 0;
+        ptr = head;
+
+        while (ptr->next != lptr) {
+            if (strcmp(ptr->data.imie, ptr->next->data.imie) > 0) {
+                Hero tmp = ptr->data;
+                ptr->data = ptr->next->data;
+                ptr->next->data = tmp;
+                swapped = 1;
+            }
+            ptr = ptr->next;
+        }
+        lptr = ptr;
+    } while (swapped);
+
+    printf("Posortowano alfabetycznie po imieniu.\n");
+    return head;
+}
+
+Node* sortByLevel(Node* head) {
+    if (!head) return NULL;
+
+    int swapped;
+    Node* ptr;
+    Node* lptr = NULL;
+
+    do {
+        swapped = 0;
+        ptr = head;
+
+        while (ptr->next != lptr) {
+            if (ptr->data.poziom > ptr->next->data.poziom) {
+                Hero tmp = ptr->data;
+                ptr->data = ptr->next->data;
+                ptr->next->data = tmp;
+                swapped = 1;
+            }
+            ptr = ptr->next;
+        }
+        lptr = ptr;
+    } while (swapped);
+
+    printf("Posortowano po poziomie.\n");
+    return head;
+}
+
 
 

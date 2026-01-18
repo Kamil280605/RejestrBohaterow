@@ -1,1 +1,3 @@
 Azorg;Ork;ùowca;1;12;1
+Gilbert;Skrzat;Wojownik;21;10;2
+Gandalf;Elf;Mag;121;98;0

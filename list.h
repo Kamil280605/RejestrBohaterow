@@ -27,3 +27,6 @@ Node* loadFromFile(const char* filename);
 
 void searchByName(Node* head);
 void searchByLevel(Node* head);
+
+Node* sortByName(Node* head);
+Node* sortByLevel(Node* head);

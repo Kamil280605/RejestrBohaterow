@@ -16,6 +16,8 @@ int main(void) {
         printf("5. Zapisz do pliku\n");
         printf("6. Wyszukaj po imieniu\n");
         printf("7. Wyszukaj po poziomie\n");
+        printf("8. Sortuj po imieniu\n");
+        printf("9. Sortuj po poziomie\n");
         printf("0. Wyjscie\n");
         printf("Wybor: ");
         scanf("%d", &choice);
@@ -41,6 +43,12 @@ int main(void) {
             break;
         case 7:
             searchByLevel(head);
+            break;
+        case 8:
+            head = sortByName(head);
+            break;
+        case 9:
+            head = sortByLevel(head);
             break;
         case 0:
             printf("Koniec programu.\n");
