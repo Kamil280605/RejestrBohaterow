@@ -1,5 +1,13 @@
 # Rejestr Bohaterów Gildii Poszukiwaczy Przygód
 
-Projekt w języku C realizowany w Visual Studio.
+Projekt w języku C (Visual Studio).
 
-Etap 1: konfiguracja środowiska oraz definicja struktury danych bohatera.
+Funkcje:
+- lista dynamiczna (malloc/free)
+- dodawanie, edycja, usuwanie bohaterów
+- blokada usuwania przy statusie NA_MISJI
+- wyszukiwanie tekstowe i liczbowe
+- sortowanie alfabetyczne i liczbowe
+- zapis i odczyt z pliku tekstowego
+
+Autor: Kamil Kulikowski GR 1
